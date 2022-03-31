@@ -10,10 +10,22 @@
         <Button
 
             Command="{Binding PlaceInstance}"
-            Content="Установить элемент" Height="20" Margin="392,166,281,248" d:LayoutOverrides="HorizontalAlignment"/>
+            Content="Установить элемент" Height="20" Margin="400,108,267,306"/>
         <Button 
             Command="{Binding PlaceDimension}"
-            Content="Установить размер" Margin="392,212,275,202" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Height="20"/>
+            Content="Установить размер" Margin="400,154,267,260" Height="20"/>
+        <Button 
+            Command="{Binding DeleteViewPort}"
+            Content="DeleteViewPort" Height="20" Margin="400,199,267,215" d:LayoutOverrides="VerticalAlignment"/>
+        <Button 
+            Command="{Binding PrintPDF}"
+            Content="PrintPDF" Margin="400,236,267,178" Height="20"/>
+        <Button 
+            Command="{Binding ExportDWG}"
+            Content="Export to DWG" Margin="400,276,267,138" Height="20"/>
+        <Button 
+            Command="{Binding FamAnalitic}"
+            Content="FamAnalitic" Margin="400,318,267,96" Height="20"/>
 
     </Grid>
 </Window>

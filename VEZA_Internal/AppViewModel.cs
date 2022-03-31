@@ -25,7 +25,7 @@ namespace VEZA_Internal
                     {
 
                         Get_Instance GetIns = new Get_Instance();
-                        GetIns.GetInstance(_doc);
+                        GetIns.GetInstanceDuctAccessory(_doc);
                     }));   
             }
         }
@@ -46,6 +46,65 @@ namespace VEZA_Internal
             }
         }
 
+        private RelayCommand deleteViewPort;
+        public RelayCommand DeleteViewPort
+        {
+            get
+            {
+                return deleteViewPort ??
+                    (deleteViewPort = new RelayCommand(obj =>
+                    {
+
+                        Get_Instance GetIns = new Get_Instance();
+                        GetIns.DeleteViewPort(_doc);
+                    }));
+            }
+        }
+
+        private RelayCommand printPDF;
+        public RelayCommand PrintPDF
+        {
+            get
+            {
+                return printPDF ??
+                    (printPDF = new RelayCommand(obj =>
+                    {
+
+                        Print pr = new Print();
+                        pr.AutoPrintPDF(_doc);
+                    }));
+            }
+        }
+
+        private RelayCommand exportDWG;
+        public RelayCommand ExportDWG
+        {
+            get
+            {
+                return exportDWG ??
+                    (exportDWG = new RelayCommand(obj =>
+                    {
+
+                        Print pr = new Print();
+                        pr.AutoExportDWG(_doc);
+                    }));
+            }
+        }
+
+        private RelayCommand famAnalitic;
+        public RelayCommand FamAnalitic
+        {
+            get
+            {
+                return famAnalitic ??
+                    (famAnalitic = new RelayCommand(obj =>
+                    {
+
+                        Fam_Analitic f_A = new Fam_Analitic();
+                        f_A.FamAnalitic(_doc);
+                    }));
+            }
+        }
 
 
 

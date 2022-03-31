@@ -9,20 +9,41 @@ namespace VEZA_Internal
 {
     public class Get_Set_Instance_Parameter
     {
-        public string Get_Parameter_Value_String(Element instance, string Param_Name)
+        public string GetParameterValueString(Element instance, string Param_Name)
         {
             Parameter param = instance.LookupParameter(Param_Name);
             string param_value = param.AsString();
             return param_value;
         }
 
-        public double Get_Parameter_Value_Double(Element instance, string Param_Name)
+        public double GetParameterValueDouble(Element instance, string Param_Name)
         {
             Parameter param = instance.LookupParameter(Param_Name);
             double param_value = param.AsDouble();
             return param_value;
         }
 
+        public bool IsParameterValid(Element instance, string Param_Name)
+        {
+            bool Valid = true;
+            Parameter param = instance.LookupParameter(Param_Name);
+            if (param == null)
+            {
+                Valid = false;
+            }
+            return Valid;
+        }
+
+        public bool IsFamSymParameterValid(FamilySymbol famSym, string Param_Name)
+        {
+            bool Valid = true;
+            Parameter param = famSym.LookupParameter(Param_Name);
+            if (param == null)
+            {
+                Valid = false;
+            }
+            return Valid;
+        }
         public void SetParameterValueByName(Document doc, Element new_instance, string Param_Name, string Parameter_Value)
         {
             using (Transaction t = new Transaction(doc))
